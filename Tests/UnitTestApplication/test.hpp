@@ -45,4 +45,9 @@ namespace Scriptability::UnitTesting
 
         return true;
     }
+    
+    static void EndTest(TestResponse response)
+    {
+        exit(ToExitCode(response));
+    }
 }

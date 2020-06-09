@@ -99,6 +99,7 @@ void Console::WriteLine(const std::string &prefix, const std::string &fmt, Ansii
 
 void Console::Init()
 {
+    #ifdef SCRIPTABILITY_PLATFORM_WIN32
     auto handle = GetStdHandle(STD_OUTPUT_HANDLE);
     if (handle == INVALID_HANDLE_VALUE)
     {
@@ -115,4 +116,5 @@ void Console::Init()
     }
      
     SupportsColor = true;
+    #endif
 }
