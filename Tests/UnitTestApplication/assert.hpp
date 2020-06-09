@@ -20,8 +20,8 @@ namespace Scriptability::UnitTesting
         if (value) 
             return;
             
-        Scriptability::UnitTesting::Console::Warn("assertion hit - %s %i", function, line);
-        Scriptability::UnitTesting::Console::Warn(fmt, args...);
+        Console::Warn("assertion hit - %s %i", function, line);
+        Console::Warn(fmt, args...);
         
         EndTest(TestResponse::kUnitError);
     }
