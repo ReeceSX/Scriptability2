@@ -1,0 +1,8 @@
+[Standard] template libraries:
+ *none* outside of unit tests and lua. See "Project Structure.html" for non-lua and/or pure nostd envrionments
+
+Platforms:
+ Windows, Linux, NX, NTOS, Linux Kernel (patch may be required)
+
+Architectures: 
+ x86_32, x86_64, aarch64
