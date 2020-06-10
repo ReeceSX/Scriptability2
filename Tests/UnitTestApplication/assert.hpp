@@ -15,12 +15,12 @@
 namespace Scriptability::UnitTesting
 {
     template<typename... Args>
-    static void Assert(bool value, const char * function, int line, const std::string &fmt, Args... args)
+    static void Assert(bool value, const char * function, const char * file, int line, const std::string &fmt, Args... args)
     {
         if (value) 
             return;
             
-        Console::Warn("assertion hit - %s %i", function, line);
+        Console::Warn("assertion hit - %s#%i (%s)", file, line, function);
         Console::Warn(fmt, args...);
         
         EndTest(TestResponse::kUnitError);
@@ -29,5 +29,5 @@ namespace Scriptability::UnitTesting
 
 #define UnitAssert(tru, str, ...)                                                          \
     do {                                                                                   \
-        Scriptability::UnitTesting::Assert(tru, __FUNCTION__, __LINE__, str, __VA_ARGS__); \
+        Scriptability::UnitTesting::Assert(tru, __FUNCTION__, __FILE__, __LINE__, str, __VA_ARGS__); \
     } while (0)

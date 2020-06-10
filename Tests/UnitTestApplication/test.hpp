@@ -36,7 +36,7 @@ namespace Scriptability::UnitTesting
 
     static bool ToTestResponse(int code, TestResponse &response)
     {
-        uint32_t exit = static_cast<int>(code);
+        uint32_t exit = static_cast<uint32_t>(code);
 
         if (((exit >> 16) & 0xFFFF) != kExitMagic)
             return false;
