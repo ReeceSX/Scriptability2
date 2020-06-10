@@ -1,0 +1,6 @@
+Application Configuration:
+ See header: Include\ScriptabilityConfiguration.hpp
+
+Build Configuration:
+ TBD 
+

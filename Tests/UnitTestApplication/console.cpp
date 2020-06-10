@@ -8,25 +8,28 @@
     Originator: Reece
     Purpose:
 ***/
+#include <ScriptabilityCommon.hpp>
+
 #include "console.hpp"
 
-#ifdef SCRIPTABILITY_PLATFORM_WIN32
+#if defined(SCRIPTABILITY_PLATFORM_WIN32)
 #include <windows.h>
 #endif
 
+#include <string>
 #include <cstdio>
 #include <array>
 #include <stdarg.h>
 
 using namespace Scriptability::UnitTesting;
 
-#ifdef SCRIPTABILITY_PLATFORM_WIN32
+#if defined(SCRIPTABILITY_PLATFORM_WIN32)
 static bool SupportsColor = false;
 #else
 static bool SupportsColor = true;
 #endif
 
-std::array<std::string, static_cast<size_t>(AnsiiColor::kCount)> AnsiCheats  {
+std::array<std::string, static_cast<size_t>(AnsiColor::kCount)> AnsiCheats  {
     "\033[0;31m",
     "\033[1;31m",
     "\033[0;32m",
@@ -43,7 +46,7 @@ std::array<std::string, static_cast<size_t>(AnsiiColor::kCount)> AnsiCheats  {
     "\033[0m"
 };
 
-static std::string FormatFormat(const std::string &prefix, const std::string &fmt, AnsiiColor color)
+static std::string FormatFormat(const std::string &prefix, const std::string &fmt, AnsiColor color)
 {
     std::string ret;
 
@@ -57,13 +60,13 @@ static std::string FormatFormat(const std::string &prefix, const std::string &fm
 
     if (SupportsColor)
     {
-        ret += AnsiCheats[static_cast<size_t>(AnsiiColor::kReset)];
+        ret += AnsiCheats[static_cast<size_t>(AnsiColor::kReset)];
     }
 
     return  ret;
 }
 
-void Console::WriteLine(const std::string &prefix, const std::string &fmt, AnsiiColor color, ...)
+void Console::WriteLine(const std::string &prefix, const std::string &fmt, AnsiColor color, ...)
 {
     va_list args;
     char *buffer;
@@ -75,7 +78,7 @@ void Console::WriteLine(const std::string &prefix, const std::string &fmt, Ansii
     {
         length = vsnprintf(nullptr, 0, temp.c_str(), args) + 1;
 
-        if (length == 0)
+        if (length == 1)
         {
             puts("vsprint error");
             return;

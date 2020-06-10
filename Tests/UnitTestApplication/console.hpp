@@ -14,7 +14,7 @@
 
 namespace Scriptability::UnitTesting::Console
 {
-    enum class AnsiiColor
+    enum class AnsiColor
     {
         kRed,
         kBoldRed,
@@ -33,23 +33,23 @@ namespace Scriptability::UnitTesting::Console
     };
 
     void Init();
-    void WriteLine(const std::string &prefix, const std::string &fmt, AnsiiColor color, ...);
+    void WriteLine(const std::string &prefix, const std::string &fmt, AnsiColor color, ...);
 
     template<typename... Args>
     static void Log(const std::string &fmt, Args... args)
     {
-        WriteLine("Log", fmt, AnsiiColor::kGreen, args...);
+        WriteLine("Log", fmt, AnsiColor::kGreen, args...);
     }
 
     template<typename... Args>
     static void Warn(const std::string &fmt, Args... args)
     {
-        WriteLine("Warn", fmt, AnsiiColor::kRed, args...);
+        WriteLine("Warn", fmt, AnsiColor::kRed, args...);
     }
 
     template<typename... Args>
     static void Debug(const std::string &fmt, Args... args)
     {
-        WriteLine("Debug", fmt, AnsiiColor::kYellow, args...);
+        WriteLine("Debug", fmt, AnsiColor::kYellow, args...);
     }
 }
