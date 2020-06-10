@@ -41,7 +41,7 @@
     ;; USED IN SECOND BRANCH
     ADD RDX, ((sizeof(WORD)))      ; RDX = &reserved
     MOV [RDX], RAX                 ; *RDX = RAX 
-    AND [RDX], 144115188075855870  ; *RDX &= 2 ^ 57
+    AND [RDX], 144115188075855872  ; *RDX &= 2 ^ 57
     
     ((if (R15) emit:))
     MOV R15, QWORD PTR [RSP + 16]
