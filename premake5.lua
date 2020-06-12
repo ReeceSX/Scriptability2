@@ -25,11 +25,11 @@ workspace "Scriptability"
     staticruntime "On"
 
     filter "configurations:Debug"
-        targetdir "bin/debug"
+        targetdir "Build_WorkingDirectory/bin/debug"
         defines { "DEBUG" }
 
     filter "configurations:Release"
-        targetdir "bin/release"
+        targetdir "Build_WorkingDirectory/bin/release"
         defines { "NDEBUG" }
         optimize "Size"
 
