@@ -1,5 +1,5 @@
 /***
-    Copyright (©) 2020 Reece Wilson (a/k/a "Reece"). All rights reserved.
+    Copyright (ï¿½) 2020 Reece Wilson (a/k/a "Reece"). All rights reserved.
     Do not use, copy, distribute, publish, disseminate, modify, or sublicense without express permission from the rights holder[s]. 
     Please do no evil.
  
