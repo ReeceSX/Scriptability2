@@ -3,23 +3,17 @@
     Do not use, copy, distribute, publish, disseminate, modify, or sublicense without express permission from the rights holder[s]. 
     Please do no evil.
  
-    File: entrypoint.cpp
-    Date: 2020-6-9
+    File: test.cpp
+    Date: 2020-6-12
     Originator: Reece
-    Purpose:
+    Purpose: Lightweight and portable unit test abstraction
 ***/
 #include <ScriptabilityCommon.hpp>
-
 #include "test.hpp"
-#include "console.hpp"
 
-using namespace Scriptability::UnitTesting;
+#include <stdlib.h>
 
-extern void RunTests();
-
-int main(int argsc, const char ** argsv)
+void Scriptability::UnitTesting::EndTest(TestResponse response)
 {
-    Console::Init();
-    RunTests();
-    return ToExitCode(TestResponse::kPass);
-}    
+    exit(ToExitCode(response));
+}

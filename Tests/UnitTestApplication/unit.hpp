@@ -3,23 +3,14 @@
     Do not use, copy, distribute, publish, disseminate, modify, or sublicense without express permission from the rights holder[s]. 
     Please do no evil.
  
-    File: entrypoint.cpp
-    Date: 2020-6-9
+    File: unit.hpp
+    Date: 2020-6-12
     Originator: Reece
     Purpose:
 ***/
-#include <ScriptabilityCommon.hpp>
+#pragma once
 
+#include <ScriptabilityCommon.hpp>
 #include "test.hpp"
 #include "console.hpp"
-
-using namespace Scriptability::UnitTesting;
-
-extern void RunTests();
-
-int main(int argsc, const char ** argsv)
-{
-    Console::Init();
-    RunTests();
-    return ToExitCode(TestResponse::kPass);
-}    
+#include "assert.hpp"
