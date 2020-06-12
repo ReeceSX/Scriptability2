@@ -1,10 +1,11 @@
-require("options")
-
-
 local unitTestPlatforms = {"target-win32", "target-linux"}
 local scriptabilityLuaPlatforms = {"target-win32", "target-linux", "target-android", "target-switch"}
 local expectedSupport = {"target-ps4", "target-switch", "target-linux-kernel"}
 
+-- process command line arguments into global space
+require("options")
+
+-- test for unimplemented architecture targets 
 for k in pairs(expectedSupport) do
     if (_OPTIONS[k]) then
         print("Platform support should be implemented soon :tm:")
@@ -12,15 +13,8 @@ for k in pairs(expectedSupport) do
     end
 end
 
-local defintions = require("preprocessors")
-local projectCopyCmds = require("buildPostProcess");
-
-
-local isWin = _G.scriptcfg["target-win32"]
-    
-
+-- create workspace 
 platforms(require("platform"));
-
 
 workspace "Scriptability"
     configurations { "Debug", "Release" }
@@ -44,19 +38,22 @@ workspace "Scriptability"
     flags { "NoIncrementalLink" }
     editandcontinue "Off"
 
-
-setupProject = require("project")
+-------------------------------------------------------
+setupProject  = require("project")
 setupUnitTest = require("unitTest")
-
+-------------------------------------------------------
 group "Code"
 
+local isWin = _G.scriptcfg["target-win32"]
 if (isWin) then
     require("vscommon")
 end 
-
+-------------------------------------------------------
 setupProject("ScriptabilityCore", "SharedLib", true);
 
-
+-------------------------------------------------------
 group "Unit Tests"
-
+-------------------------------------------------------
 setupUnitTest("All")
+
+-------------------------------------------------------

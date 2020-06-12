@@ -1,4 +1,3 @@
-
 function win32Fmt(name, type, dir, ex)     
     -- TODO: printf
     return "{COPY} \"%{cfg.targetdir}/".. name .. "." .. ex .. "\" \"" .. dir .. "/" .. name .. ".%{cfg.buildcfg}.%{cfg.system}.%{cfg.architecture}.".. ex .. "*\"";
