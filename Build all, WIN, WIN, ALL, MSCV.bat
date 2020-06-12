@@ -1,0 +1,1 @@
+premake5 --scripts="Build_Scripts" vs2019 --target-win32 --target-x86-32 --target-x86-64 --target-arm
