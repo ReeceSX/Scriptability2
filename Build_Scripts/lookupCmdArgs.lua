@@ -6,17 +6,16 @@ function lookupArgPair(map, array)
     end
 
     for k, v in pairs(map) do
-           if (_OPTIONS[k] ~= nil) then
-               if (array) then
-                   table.insert(ret, v)
-               else
-                   return v
-               end
+        if (_OPTIONS[k] ~= nil) then
+            if (array) then
+                table.insert(ret, v)
+            else
+                return v
+            end
         end
     end
     
     return ret
 end
-
 
 return lookupArgPair
