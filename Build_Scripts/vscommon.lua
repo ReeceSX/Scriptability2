@@ -1,3 +1,5 @@
+local isWin = _G.scriptcfg["target-win32"]
+
 project "Common Include"
 
     targetname("common")
