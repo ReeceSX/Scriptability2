@@ -9,6 +9,11 @@ Build_Ship/*
 Build_Developers/*
 !Build_Developers/keepme
 
+*.dll
+*.exe
+*.vcxproj
+*.vcxproj.filters
+
 ###########################################################################
 
 ## Ignore Visual Studio temporary files, build results, and
