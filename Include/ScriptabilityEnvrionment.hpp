@@ -51,7 +51,7 @@
         #define SCRIPTABILITY_ABI_CDECL
     #endif
 
-    #define SCRIPTABILITY_SYMBOL_IMPORT extern __declspec(dllimport) 
+    #define SCRIPTABILITY_SYMBOL_IMPORT __declspec(dllimport) 
     #define SCRIPTABILITY_SYMBOL_EXPORT __declspec(dllexport) 
 
 #elif defined(SCRIPTABILITY_COMMUNISM_COMPILER) ||  defined(SCRIPTABILITY_COMPILER_CLANG)
@@ -71,7 +71,7 @@
         #define SCRIPTABILITY_ABI_CDECL
     #endif
 
-    #define SCRIPTABILITY_SYMBOL_IMPORT extern __attribute__(dllimport) 
+    #define SCRIPTABILITY_SYMBOL_IMPORT __attribute__(dllimport) 
     #define SCRIPTABILITY_SYMBOL_EXPORT __attribute__(dllexport) 
 
 #endif
