@@ -12,3 +12,4 @@
 
 #include "ScriptabilityConfiguration.hpp"
 #include "ScriptabilityEnvrionment.hpp"
+#include "ScriptabilityTypes.hpp"

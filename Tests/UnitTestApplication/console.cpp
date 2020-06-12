@@ -1,12 +1,12 @@
 /***
-    Copyright (©) 2020 Reece Wilson (a/k/a "Reece"). All rights reserved.
-    Do not use, copy, distribute, publish, disseminate, modify, or sublicense without express permission from the rights holder[s].
+    Copyright (�) 2020 Reece Wilson (a/k/a "Reece"). All rights reserved.
+    Do not use, copy, distribute, publish, disseminate, modify, or sublicense without express permission from the rights holder[s]. 
     Please do no evil.
-
+ 
     File: console.cpp
     Date: 2020-6-9
     Originator: Reece
-    Purpose:
+    Purpose: Lightweight and portable unit test abstraction
 ***/
 #include <ScriptabilityCommon.hpp>
 
@@ -22,6 +22,7 @@
 #include <stdarg.h>
 
 using namespace Scriptability::UnitTesting;
+using namespace Scriptability::UnitTesting::Console;
 
 #if defined(SCRIPTABILITY_PLATFORM_WIN32)
 static bool SupportsColor = false;
@@ -46,7 +47,7 @@ std::array<std::string, static_cast<size_t>(AnsiColor::kCount)> AnsiCheats  {
     "\033[0m"
 };
 
-static std::string FormatFormat(const std::string &prefix, const std::string &fmt, AnsiColor color)
+static std::string FormatPrintfIn(const std::string &prefix, const std::string &fmt, AnsiColor color)
 {
     std::string ret;
 
@@ -72,7 +73,7 @@ void Console::WriteLine(const std::string &prefix, const std::string &fmt, AnsiC
     char *buffer;
     size_t length;
     
-    auto temp = FormatFormat(prefix, fmt, color);
+    auto temp = FormatPrintfIn(prefix, fmt, color);
 
     va_start(args, color);
     {
