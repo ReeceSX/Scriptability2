@@ -37,7 +37,6 @@ function setupProject(name, type, ship)
         name .. "/Source/**.masm"
     }
 
-
     if projectCopyCmds ~= true then
         if ship then
             projectCopyCmds(name, type, "../Build_Ship")

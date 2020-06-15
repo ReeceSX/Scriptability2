@@ -53,6 +53,7 @@ newoption {
     description = "secret source"
 }
 
+-- FLAGS 
 
 local tbl = 
 {"target-x86-32", 
@@ -69,9 +70,15 @@ local tbl =
 
 _G.scriptcfg = {}; 
 
-for k in pairs(tbl) do
-    k = tbl[k]
+for i, k in pairs(tbl) do
     if (_OPTIONS[k]) then
         _G.scriptcfg[k] = true;
     end
 end
+
+-- BUILD OPTIONS
+-- TODO: a global object with special kvp build *options* (not binary flags)
+
+
+-- PREPROCESSOR OPTIONS 
+-- TODO: autogen /Include/ScriptabilityConfiguration.hpp
